@@ -7,3 +7,8 @@ virtualenv env
 
 # set environment vars
 .\util\set_env.ps1
+
+### Linux
+
+### restore pip requirements
+pip install -r requirements.txt
