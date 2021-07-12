@@ -1,0 +1,9 @@
+# create virtual environment
+virtualenv env
+
+### WINDOWS
+# start virtual environment
+.\env\Source\activate.ps1
+
+# set environment vars
+.\util\set_env.ps1
