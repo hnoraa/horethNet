@@ -1,5 +1,6 @@
 ### Loads the environment configuration into the Windows environment
-$json = "environment.json"
+$scriptDir = Split-Path $script:MyInvocation.MyCommand.Path
+$json = $scriptDir + "\environment.json"
 $settings = Get-Content -Raw -Path $json | ConvertFrom-Json
 
 $env:FLASK_APP=$settings.FLASK_APP
