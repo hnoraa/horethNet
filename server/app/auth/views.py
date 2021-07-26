@@ -112,29 +112,29 @@ class LogoutView(MethodView):
                     # insert the token
                     blacklist_token.save()
 
-                    responseObject = {
+                    response = {
                         'status': 'success',
                         'message': 'Successfully logged out.'
                     }
-                    return make_response(jsonify(responseObject)), 200
+                    return make_response(jsonify(response)), 200
                 except Exception as e:
-                    responseObject = {
+                    response = {
                         'status': 'fail',
                         'message': e
                     }
-                    return make_response(jsonify(responseObject)), 200
+                    return make_response(jsonify(response)), 200
             else:
-                responseObject = {
+                response = {
                     'status': 'fail',
                     'message': resp
                 }
-                return make_response(jsonify(responseObject)), 401
+                return make_response(jsonify(response)), 401
         else:
-            responseObject = {
+            response = {
                 'status': 'fail',
                 'message': 'Provide a valid auth token.'
             }
-            return make_response(jsonify(responseObject)), 403
+            return make_response(jsonify(response)), 403
 
 
 registration_view = RegistrationView.as_view('register_view')
