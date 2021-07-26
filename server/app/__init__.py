@@ -34,33 +34,6 @@ def create_app(config_name):
     migrate.init_app(app, db)
     db.create_all()
 
-    # base routes
-    @app.route('/')
-    @app.route('/index')
-    def index():
-        print(request.headers)
-        print(request)
-        print(session)
-        if request.headers.get('Authorization'):
-            auth_header = request.headers.get('Authorization')
-            access_token = auth_header.split(" ")[1]
-
-            if access_token:
-                user_id = User.decode_token(access_token)
-
-                if not isinstance(user_id, str):
-                    return render_template('index.html', title='Home', user=user_id)
-                else:
-                    # return render_template('index.html', title='Home', user=None)
-                    return redirect(url_for('auth.login_view'))
-        else:
-            # return render_template('index.html', title='Home', user=None)
-            print('user doesnt exist')
-            return redirect(url_for('auth.login_view'))
-
-
-    # import the login blueprint
-
     # import the auth blueprint
     from .auth import auth_blueprint
     app.register_blueprint(auth_blueprint)
