@@ -1,5 +1,6 @@
 {
     "FLASK_APP": "run.py",
     "SECRET": "5deecee8-3d33-4106-a596-41c734703fb8",
-    "DATABASE_URI": "postgresql://horeth:password@localhost"
+    "DATABASE_URI": "postgresql://horeth:password@localhost",
+    "APP_SETTINGS": "dev"
 }

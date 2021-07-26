@@ -6,3 +6,4 @@ $settings = Get-Content -Raw -Path $json | ConvertFrom-Json
 $env:FLASK_APP=$settings.FLASK_APP
 $env:SECRET=$settings.SECRET
 $env:DATABASE_URI=$settings.DATABASE_URI
+$env:APP_SETTINGS=$settings.APP_SETTINGS
