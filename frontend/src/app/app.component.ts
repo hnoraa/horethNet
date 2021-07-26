@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpService } from './services/http/http.service';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'frontend';
+  constructor (private server: HttpService) {}
+
+  ngOnInit() {
+    this.server.test().subscribe((data: string) => {
+      this.title = data;
+      console.log(data);
+    });
+  }
 }

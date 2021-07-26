@@ -34,6 +34,11 @@ def create_app(config_name):
     migrate.init_app(app, db)
     db.create_all()
 
+    # tester route
+    @app.route('/test', methods=['GET'])
+    def test():
+        return 'hello'
+
     # import the auth blueprint
     from .auth import auth_blueprint
     app.register_blueprint(auth_blueprint)
